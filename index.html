@@ -1,0 +1,139 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <title>Akinator</title>
+</head>
+
+<body>
+
+<div class="hint" id="hint">
+    <table>
+        <tbody><tr>
+            <td>
+                <div id="logo"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <h1>Think of a character (real or fictional), just not a politician! I will try to guess it!</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="reset" style="background-color: #198754; text-align: center; width: 50%; margin: 0 auto;" id="startGame">
+                    Start Game
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+
+<div class="centerBox">
+    <div id="loading" style="display: none;"></div>
+    <div class="top-center-block">
+        Akinator: <span id="akinatorScore">2</span><br>
+        Player: <span id="playerScore">5</span>
+    </div>
+    <div class="cont" id="cont" style="display: block;">
+        <div id="error">
+            <h1>Server error, please try again later :(</h1>
+            <a href="/">
+                <div class="reset">
+                    Restart?
+                </div>
+            </a>
+        </div>
+        <div id="qa" style="display: block;">
+            <h1 id="quastion">Is your character a real person?</h1>
+            <ul id="answers">
+                <li onclick="chooseAnswer(window.step, window.progression, 0, window.session, window.signature)">
+                    <b>Yes</b>
+                </li>
+                <li onclick="chooseAnswer(window.step, window.progression, 1, window.session, window.signature)">
+                    <b>No</b>
+                </li>
+                <li onclick="chooseAnswer(window.step, window.progression, 2, window.session, window.signature)">
+                    <b>I don't know</b>
+                </li>
+                <li onclick="chooseAnswer(window.step, window.progression, 3, window.session, window.signature)">
+                    <b>Partially</b>
+                </li>
+                <li onclick="chooseAnswer(window.step, window.progression, 4, window.session, window.signature)">
+                    <b>Probably not</b>
+                </li>
+            </ul>
+        </div>
+        <div id="result" style="display: none;">
+            <br><br>
+            <b id="resultTitle"></b><b>: </b>
+            <font id="resultDesc"></font>
+            <br><br>
+            <img id="photo" src="" alt="">
+            <h1>Did I guess it right? Be honest!</h1>
+
+            <table style="width: 100%">
+                <tbody><tr>
+                    <td style="width: 50%">
+                        <div onclick="increaseScore('akinator')" class="reset" style="background: #12ac00">
+                            YES
+                        </div>
+                    </td>
+                    <td style="width: 50%">
+                        <div onclick="increaseScore('player')" class="reset" style="background: #ac0020">
+                            NO
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+</div>
+
+<script src="game.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const akinatorSpan = document.getElementById("akinatorScore");
+        const playerSpan = document.getElementById("playerScore");
+
+        let scores = JSON.parse(localStorage.getItem("akinatorScores")) || {
+            akinator: 0,
+            player: 0,
+            timestamp: Date.now()
+        };
+
+        const fiveDays = 1000 * 60 * 60 * 24 * 5;
+        if (Date.now() - scores.timestamp > fiveDays) {
+            scores = { akinator: 0, player: 0, timestamp: Date.now() };
+            localStorage.setItem("akinatorScores", JSON.stringify(scores));
+        }
+
+        function updateDisplay() {
+            akinatorSpan.textContent = scores.akinator;
+            playerSpan.textContent = scores.player;
+        }
+
+        window.increaseScore = function (who) {
+            scores[who]++;
+            scores.timestamp = Date.now();
+            localStorage.setItem("akinatorScores", JSON.stringify(scores));
+            updateDisplay();
+            window.location.replace('/');
+        };
+
+        updateDisplay();
+    });
+</script>
+
+<script>
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault(); // Disables default context menu
+    });
+</script>
+
+
+</body></html>

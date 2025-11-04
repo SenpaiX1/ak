@@ -1,0 +1,251 @@
+
+body {
+    user-select: none;
+    -webkit-user-select: none; /* для Safari */
+    -moz-user-select: none; /* для Firefox */
+    -ms-user-select: none; /* для старых версий Internet Explorer */
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;
+    -o-user-select: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image: url('/images/background.jpg'); /* Замените на путь к вашему изображению */
+    background-size: cover; /* Обеспечивает масштабирование изображения, чтобы оно заполнило весь экран */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Избегает повторения изображения */
+    background-color: white;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+
+.hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    z-index: 99999;
+}
+
+
+
+.hint h1 {
+
+    width: 90%;
+}
+
+
+.centerBox {
+    display: flex;
+    flex-direction: column;      /* <-- ключевое свойство */
+    height: 100vh;
+    align-items: center;         /* по горизонтали по центру */
+    justify-content: center;     /* по вертикали по центру */
+    padding: 5px;
+    /* background-color: white; */
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 5vh;
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.cont {
+    user-select: none;
+    -webkit-user-select: none; /* для Safari */
+    -moz-user-select: none; /* для Firefox */
+    -ms-user-select: none; /* для старых версий Internet Explorer */
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;
+    -o-user-select: none;
+
+
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    //border-radius: 10px;
+    padding: 25px;
+    padding-top: 0px;
+    max-height: 90vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cont img {
+    position: relative;
+    height: auto;
+    max-height: 25vh;
+    width: auto;
+    border-radius: 1000px;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+#answers {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#answers li {
+    font-family: "Roboto", sans-serif;
+    padding: 10px 20px;
+    background-color: #a233b4;
+    color: white;
+    text-decoration: none;
+    //border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 3vh;
+    text-transform: uppercase;
+    //border: 3px solid #877d3b;
+}
+
+
+#loading {
+    background-image: url('/images/loading.gif');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 100px;
+    pointer-events: none;
+
+}
+
+#photo {
+    display: block;
+    position: relative;
+    height: auto;
+    border-radius: 0;
+}
+
+#result {
+    font-size: 3vh;
+}
+
+.reset {
+    font-family: "Roboto", sans-serif;
+    background-color: #0D6EFD;
+    padding: 30px;
+    width: auto;
+    margin: 0px;
+    font-weight: 600;
+    color: white;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 5vh;
+    border-radius: 5px;
+    //border: 8px solid #216546;
+    text-transform: uppercase;
+}
+
+#error {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+#logo {
+    background-image: url('/images/brain.png');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    border-radius: 100px;
+}
+
+.top-center-block {
+    font-family: "Roboto", sans-serif;
+    font-size: 3vh;
+    text-align: center;
+    padding: 10px 20px;
+    z-index: 1000; /* чтобы был выше остальных элементов */
+    margin-bottom: 20px;
+    color:black;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#result .reset {
+    padding: 5px;
+    font-size: 3vh;
+    margin-top: 7px;
+}
+#result h1 {
+    font-size: 2vh;
+    color: black;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        background-color: white;
+        display: flex; /* Включает flexbox */
+        justify-content: center; /* Центрирует по горизонтали */
+        align-items: center; /* Центрирует по вертикали */
+        height: 100vh; /* Высота body равна высоте окна браузера */
+        margin: 0; /* Убирает отступы по умолчанию */
+    }
+
+    .cont {
+        border: none;
+        padding: 7px;
+    }
+
+    .cont img {
+        position: relative;
+        max-height: 100px;
+        width: auto;
+        border-radius: 1000px;
+        margin: 0 auto;
+
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+
+    #hint {
+        padding: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+    }
+
+    #photo {
+        max-height: 20vh;
+    }
+
+
+}
