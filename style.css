@@ -17,7 +17,7 @@ body {
     justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-image: url('/images/background.jpg'); /* Замените на путь к вашему изображению */
+    background-image: url('images/background.jpg'); /* Замените на путь к вашему изображению */
     background-size: cover; /* Обеспечивает масштабирование изображения, чтобы оно заполнило весь экран */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Избегает повторения изображения */
@@ -128,7 +128,7 @@ h1 {
 
 
 #loading {
-    background-image: url('/images/loading.gif');
+    background-image: url('images/loading.gif');
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center center; /* Centers the image */
@@ -176,7 +176,7 @@ h1 {
 
 
 #logo {
-    background-image: url('/images/brain.png');
+    background-image: url('images/brain.png');
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center center; /* Centers the image */
